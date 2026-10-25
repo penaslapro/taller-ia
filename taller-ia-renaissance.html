@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI for Small Businesses · Reserve your seat</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Hanken+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{--navy:#14234A;--gold:#EDB04A;--bg:#F4F6FB;--card:#fff;--ink:#14234A;--muted:#55607C;--line:#D9DEEB;--field:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1430;--card:#18264F;--ink:#F2F4FB;--muted:#B4BDD8;--line:#2D3C6E;--field:#101B3F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1430;--card:#18264F;--ink:#F2F4FB;--muted:#B4BDD8;--line:#2D3C6E;--field:#101B3F;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Familjen Grotesk","Arial Black",system-ui,sans-serif;line-height:1.05;margin:0}
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:20px 20px 0}
+.wrap{max-width:980px;margin:0 auto;position:relative;z-index:2}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{background:#fff;color:#14234A;border-radius:14px;padding:9px 14px;font-weight:700;line-height:1.2;font-size:15px}
+.brand small{display:block;font-weight:500;font-size:12px;color:#55607C}
+.lang{display:flex;border:1.5px solid #3A4A7C;border-radius:99px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;padding:8px 16px;font-weight:700;font-size:14px;color:#fff}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#14234A}
+.lang button:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.pill{display:inline-block;background:var(--gold);color:#14234A;font-weight:700;font-size:15px;padding:7px 16px;border-radius:99px;margin:44px 0 20px}
+h1{font-size:clamp(46px,9vw,92px);font-weight:700;letter-spacing:-.02em;max-width:11ch}
+.lead{font-size:clamp(21px,3vw,28px);font-weight:500;line-height:1.4;max-width:28em;margin:22px 0 0;color:#fff;text-shadow:0 1px 14px rgba(8,16,48,.7)}
+.bridge{display:block;width:100%;height:auto;margin-top:36px;position:relative;z-index:1}
+main{max-width:980px;margin:-20px auto 0;padding:0 20px 60px;position:relative;z-index:3;display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:860px){main{grid-template-columns:1.1fr .9fr;align-items:start}}
+.card{background:var(--card);border-radius:22px;padding:28px;box-shadow:0 18px 50px rgba(8,16,48,.22)}
+.card h2{font-size:32px;margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 20px}
+label{display:block;font-weight:700;font-size:15px;margin:16px 0 6px}
+label span{font-weight:400;color:var(--muted)}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--field);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px}
+input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--navy)}
+.btn{all:unset;box-sizing:border-box;display:block;width:100%;text-align:center;cursor:pointer;background:var(--gold);color:#14234A;font-weight:700;font-size:18px;padding:16px;border-radius:14px;margin-top:24px}
+.btn:hover{filter:brightness(1.06)}
+.fine{font-size:14px;color:var(--muted);margin:12px 0 0}
+.side{display:grid;gap:20px}
+.info{display:grid;gap:14px}
+.info div{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.info svg{width:30px;height:30px}
+.info b{display:block}
+.info a{color:var(--ink);text-underline-offset:3px}
+.plan{list-style:none;margin:0;padding:0;display:grid;gap:12px;border-left:3px solid var(--gold);padding-left:16px}
+.plan li{display:grid;gap:0}
+.plan time{font-weight:700;font-size:14px;color:var(--muted)}
+.ok{display:none;text-align:left}
+.ok h2{font-size:30px}
+.ok .btn{margin-top:18px}
+.err{color:#C0392B;font-size:14px;margin-top:6px;display:none}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:0 20px 40px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">Renaissance<small>Entrepreneurship Center</small></div>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="b-en" aria-pressed="true">EN</button><button id="b-es" aria-pressed="false">ES</button>
+      </div>
+    </div>
+    <span class="pill" data-en="Free workshop" data-es="Taller gratuito">Free workshop</span>
+    <h1 data-en="AI for Small Businesses" data-es="IA para Pequeños Negocios">AI for Small Businesses</h1>
+    <p class="lead" data-en="Learn practical ways to use artificial intelligence to save time, improve marketing, and grow your business." data-es="Aprende formas prácticas de usar la inteligencia artificial para ahorrar tiempo, mejorar tu marketing y hacer crecer tu negocio.">Learn practical ways to use artificial intelligence to save time, improve marketing, and grow your business.</p>
+  </div>
+  <svg class="bridge" viewBox="0 0 1000 210" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <g fill="none" stroke="#EDB04A" stroke-width="3">
+      <path d="M-20 170 Q 120 70 250 18 Q 500 190 750 18 Q 880 70 1020 170"/>
+      <g stroke-width="1.5" opacity=".75">
+        <path d="M60 128V190M110 100V190M160 70V190M210 40V190M300 52V190M360 90V190M420 118V190M480 132V190M540 132V190M600 118V190M660 90V190M720 52V190M790 40V190M840 70V190M890 100V190M940 128V190"/>
+      </g>
+      <path d="M-20 172H1020" stroke-width="6"/>
+    </g>
+    <g fill="#EDB04A">
+      <rect x="236" y="8" width="28" height="184"/><rect x="736" y="8" width="28" height="184"/>
+      <rect x="230" y="64" width="40" height="8"/><rect x="230" y="108" width="40" height="8"/><rect x="730" y="64" width="40" height="8"/><rect x="730" y="108" width="40" height="8"/>
+    </g>
+  </svg>
+</header>
+
+<main>
+  <section class="card" id="formcard" aria-labelledby="ftitle">
+    <form id="f" novalidate>
+      <h2 id="ftitle" data-en="Reserve your seat" data-es="Reserva tu lugar">Reserve your seat</h2>
+      <p class="sub" data-en="It takes one minute. Seats are limited." data-es="Te toma un minuto. Los lugares son limitados.">It takes one minute. Seats are limited.</p>
+      <label for="n" data-en="Full name" data-es="Nombre completo">Full name</label>
+      <input id="n" autocomplete="name" required>
+      <label for="e" data-en="Email" data-es="Correo electrónico">Email</label>
+      <input id="e" type="email" autocomplete="email" required>
+      <label for="p"><b data-en="Phone" data-es="Teléfono" style="font-weight:700">Phone</b> <span data-en="(optional, for a text reminder)" data-es="(opcional, para un recordatorio)">(optional, for a text reminder)</span></label>
+      <input id="p" type="tel" autocomplete="tel">
+      <label for="t" data-en="What best describes you?" data-es="¿Qué te describe mejor?">What best describes you?</label>
+      <select id="t">
+        <option data-en="I own a storefront or shop" data-es="Tengo una tienda o local">I own a storefront or shop</option>
+        <option data-en="I run a business from home or online" data-es="Tengo un negocio desde casa o en línea">I run a business from home or online</option>
+        <option data-en="I want to start a business" data-es="Quiero empezar un negocio">I want to start a business</option>
+      </select>
+      <label for="h" data-en="How did you hear about us?" data-es="¿Cómo te enteraste?">How did you hear about us?</label>
+      <select id="h">
+        <option data-en="A Renaissance alum or friend" data-es="Un exalumno de Renaissance o un amigo">A Renaissance alum or friend</option>
+        <option data-en="A visit to my shop" data-es="Una visita a mi local">A visit to my shop</option>
+        <option data-en="Flyer or QR code" data-es="Flyer o código QR">Flyer or QR code</option>
+        <option data-en="Social media" data-es="Redes sociales">Social media</option>
+        <option data-en="Library or community partner" data-es="Biblioteca o socio comunitario">Library or community partner</option>
+      </select>
+      <label for="l" data-en="Workshop language" data-es="Idioma del taller">Workshop language</label>
+      <select id="l">
+        <option data-en="English" data-es="Inglés">English</option>
+        <option data-en="Español" data-es="Español">Español</option>
+      </select>
+      <div class="err" id="err" role="alert" data-en="Add your name and a valid email so we can confirm your seat." data-es="Agrega tu nombre y un correo válido para confirmar tu lugar.">Add your name and a valid email so we can confirm your seat.</div>
+      <button class="btn" type="submit" data-en="Reserve my seat" data-es="Reservar mi lugar">Reserve my seat</button>
+      <p class="fine" data-en="Free. No tech experience needed. Bring your phone or laptop." data-es="Gratis. No necesitas experiencia técnica. Trae tu celular o laptop.">Free. No tech experience needed. Bring your phone or laptop.</p>
+    </form>
+    <div class="ok" id="ok" aria-live="polite">
+      <h2 data-en="One last step" data-es="Un último paso">One last step</h2>
+      <p class="sub" id="okmsg"></p>
+      <a class="btn" id="mail" href="#" data-en="Open my email and send" data-es="Abrir mi correo y enviar">Open my email and send</a>
+      <p class="fine" id="alt"></p>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section class="card">
+      <div class="info">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="#EDB04A" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <p style="margin:0"><b data-en="Saturday, February 20, 2027" data-es="Sábado 20 de febrero de 2027">Saturday, February 20, 2027</b><span data-en="10:00 AM to 12:00 PM" data-es="10:00 a. m. a 12:00 p. m.">10:00 AM to 12:00 PM</span></p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="#EDB04A" stroke-width="2" stroke-linecap="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <p style="margin:0"><b>Excelsior Branch Library</b><a href="https://www.google.com/maps/search/?api=1&query=Excelsior+Branch+Library+4400+Mission+St+San+Francisco" target="_blank" rel="noopener">4400 Mission St, San Francisco</a></p></div>
+      </div>
+    </section>
+    <section class="card">
+      <h3 style="font-size:24px;margin-bottom:14px" data-en="What we’ll do together" data-es="Lo que haremos juntos">What we’ll do together</h3>
+      <ol class="plan">
+        <li><time>10:00</time><span data-en="Welcome and quick intros" data-es="Bienvenida y presentaciones">Welcome and quick intros</span></li>
+        <li><time>10:15</time><span data-en="Live demo: AI for replies, posts and flyers" data-es="Demo en vivo: IA para respuestas, posts y flyers">Live demo: AI for replies, posts and flyers</span></li>
+        <li><time>11:00</time><span data-en="You build 3 prompts for your own business" data-es="Creas 3 prompts para tu propio negocio">You build 3 prompts for your own business</span></li>
+        <li><time>11:40</time><span data-en="Questions and meeting other local owners" data-es="Preguntas y conocer a otros dueños locales">Questions and meeting other local owners</span></li>
+      </ol>
+    </section>
+  </aside>
+</main>
+<footer data-en="A free workshop by Renaissance Entrepreneurship Center, San Francisco." data-es="Un taller gratuito de Renaissance Entrepreneurship Center, San Francisco.">A free workshop by Renaissance Entrepreneurship Center, San Francisco.</footer>
+
+<script>
+var REG_EMAIL="andreapenasmartinez03@gmail.com";
+var lang="en";
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-en]").forEach(function(el){el.textContent=el.dataset[l]});
+  document.getElementById("b-en").setAttribute("aria-pressed",l==="en");
+  document.getElementById("b-es").setAttribute("aria-pressed",l==="es");
+  document.title=l==="es"?"IA para Pequeños Negocios · Reserva tu lugar":"AI for Small Businesses · Reserve your seat";
+}
+document.getElementById("b-en").onclick=function(){setLang("en")};
+document.getElementById("b-es").onclick=function(){setLang("es")};
+if((navigator.language||"").toLowerCase().indexOf("es")===0){setLang("es")}
+document.getElementById("f").addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var n=document.getElementById("n").value.trim(),e=document.getElementById("e").value.trim();
+  var bad=!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+  document.getElementById("err").style.display=bad?"block":"none";
+  if(bad){return}
+  function v(id){var s=document.getElementById(id);return s.options?s.options[s.selectedIndex].textContent:s.value}
+  var body=["Workshop: AI for Small Businesses (Feb 20, 2027, 10:00 AM, Excelsior Branch Library)","Name: "+n,"Email: "+e,"Phone: "+(document.getElementById("p").value.trim()||"-"),"Profile: "+v("t"),"Heard about us: "+v("h"),"Language: "+v("l")].join("\n");
+  var href="mailto:"+REG_EMAIL+"?subject="+encodeURIComponent("Seat reservation: AI for Small Businesses")+"&body="+encodeURIComponent(body);
+  document.getElementById("f").style.display="none";
+  var ok=document.getElementById("ok");ok.style.display="block";
+  var first=n.split(" ")[0];
+  document.getElementById("okmsg").textContent=lang==="es"?("Gracias, "+first+". Envía el correo que se abre para confirmar tu lugar."):("Thanks, "+first+". Send the email that opens to confirm your seat.");
+  document.getElementById("alt").textContent=lang==="es"?("¿No se abrió tu correo? Escríbenos a "+REG_EMAIL+"."):("Email didn’t open? Write us at "+REG_EMAIL+".");
+  document.getElementById("mail").href=href;
+  window.location.href=href;
+});
+</script>
+</body>
+</html>
